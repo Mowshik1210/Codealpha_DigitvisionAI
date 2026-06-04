@@ -1,0 +1,6 @@
+👉 Streamlit
+👉 Tensorflow
+👉 Numpy
+👉 Opencv-PYTHON
+👉 Pillow
+👉 Matplotlib
