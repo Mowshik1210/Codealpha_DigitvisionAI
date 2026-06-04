@@ -1,6 +1,6 @@
-👉 Streamlit
-👉 Tensorflow
-👉 Numpy
-👉 Opencv-PYTHON
-👉 Pillow
-👉 Matplotlib
+Streamlit
+Tensorflow
+Numpy
+Opencv-python-headless
+Pillow
+Matplotlib
