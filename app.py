@@ -184,8 +184,8 @@ model = load_nn_model()
 # ==========================================
 with st.sidebar:
     st.markdown("<div class='status-pill'>● AI Engine Model</div>", unsafe_allow_html=True)
-    st.markdown("<h2 style='font-weight:800; letter-spacing:-0.03em; color:#FFF; margin-bottom:4px;'>DigitVision AI</h2>", unsafe_allow_html=True)
-    st.markdown("<p style='color:#64748B; font-size:14px; margin-bottom:28px;'>Handwritten Digit Recognition By MOWSHIK</p>", unsafe_allow_html=True)
+    st.markdown("<h2 style='font-weight:800; letter-spacing:-0.03em; color:#FFF; margin-bottom:4px;'>DigitextVision AI</h2>", unsafe_allow_html=True)
+    st.markdown("<p style='color:#64748B; font-size:14px; margin-bottom:28px;'>Handwritten Digit & Text Recognition By MOWSHIK</p>", unsafe_allow_html=True)
     
     st.markdown("<p style='font-size:12px; font-weight:700; color:#475569; text-transform:uppercase; letter-spacing:0.05em;'>Pipeline Configuration</p>", unsafe_allow_html=True)
     
@@ -226,7 +226,7 @@ left_pane, right_pane = st.columns([5, 6], gap="large")
 with left_pane:
     st.markdown("<div class='saas-container'>", unsafe_allow_html=True)
     st.markdown("<h3 style='margin-top:0; font-weight:700; font-size:20px; letter-spacing:-0.02em;'>📤 Image Upload & Analysis</h3>", unsafe_allow_html=True)
-    st.markdown("<p style='color:#94A3B8; font-size:14px; margin-bottom:20px;'>Upload a handwritten character image for real time recognition and prediction.</p>", unsafe_allow_html=True)
+    st.markdown("<p style='color:#94A3B8; font-size:14px; margin-bottom:20px;'>Upload a handwritten character or Digit image for real time recognition and prediction.</p>", unsafe_allow_html=True)
     
     uploaded_file = st.file_uploader(
         "Ingest Image Matrix",
