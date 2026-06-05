@@ -285,6 +285,8 @@ with left_pane:
 
             pred = model.predict(digit)
 
+            letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+
             st.write("Top 5 classes:")
             top5 = np.argsort(pred[0])[-5:][::-1]
 
