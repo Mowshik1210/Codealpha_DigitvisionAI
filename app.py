@@ -278,6 +278,8 @@ with left_pane:
             digit = digit.reshape(1,28,28,1)
 
             pred = model.predict(digit)
+            st.write(pred)
+            st.write(np.argmax(pred))
 
             letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
@@ -304,7 +306,6 @@ with left_pane:
 
                 if gap > 40:
                     result += " "
-
 
         st.markdown(
             f"""
