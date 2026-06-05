@@ -284,6 +284,11 @@ with left_pane:
             digit = digit.reshape(1,28,28,1)
 
             pred = model.predict(digit)
+            st.write("PRED =")
+            st.write(pred)
+
+            st.write("PRED SHAPE =")
+            st.write(pred.shape)
             
 
             letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
