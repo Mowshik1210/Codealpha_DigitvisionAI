@@ -278,12 +278,14 @@ with left_pane:
             digit = digit.reshape(1,28,28,1)
 
             pred = model.predict(digit)
-            st.write(pred)
-            st.write(np.argmax(pred))
+            
 
-            letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+            letters = "_ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
-            predicted_letter = letters[np.argmax(pred)]
+            class_id = np.argmax(pred)
+
+            # EMNIST letters labels start from 1
+            predicted_letter = letters[class_id]
 
             digits.append(
                 (x, predicted_letter)
