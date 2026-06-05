@@ -272,6 +272,8 @@ with left_pane:
             digit = thresh[y:y+h, x:x+w]
 
             digit = cv2.resize(digit, (28,28))
+            digit=cv2.rotate(digit, cv2.ROTATE_90_CLOCKWISE)
+            digit=cv2.flip(digit, 1)
 
             digit = digit / 255.0
 
