@@ -25,6 +25,12 @@ x_test, y_test = tfds.as_numpy(ds_test)
 y_train = y_train - 1
 y_test = y_test - 1
 
+x_train = x_train.transpose((0,2,1,3))
+x_test = x_test.transpose((0,2,1,3))
+
+x_train = x_train[:, :, ::-1, :]
+x_test = x_test[:, :, ::-1, :]
+
 # Normalize and ensure channel dimension
 x_train = x_train.astype('float32') / 255.0
 x_test = x_test.astype('float32') / 255.0
@@ -55,7 +61,7 @@ model.compile(
 )
 
 # Train
-model.fit(x_train, y_train, epochs=5)
+model.fit(x_train, y_train, epochs=10)
 
 # Save model
 model.save("model.h5")
