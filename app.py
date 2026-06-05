@@ -284,6 +284,9 @@ with left_pane:
             digit = digit.reshape(1,28,28,1)
 
             pred = model.predict(digit)
+
+            final_prediction = pred
+            final_letter = predicted_letter
             
 
             letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
@@ -293,9 +296,15 @@ with left_pane:
             # EMNIST letters labels start from 1
             predicted_letter = letters[class_id]
 
+            confidence= np.max(pred) * 100
+
             digits.append(
                 (x, predicted_letter)
             )
+
+            
+
+            
 
         digits = sorted(digits, key=lambda item: item[0])
 
@@ -333,14 +342,7 @@ with left_pane:
         )
         
         # Execute Forward Inference Pipeline Execution on the full resized image
-        img = cv2.resize(gray, (28,28))
-        img = img / 255.0
-        img = img.reshape(1,28,28,1)
-
-        prediction = model.predict(img)
-        letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-        digit = letters[np.argmax(prediction)]
-        confidence = np.max(prediction) * 100
+        
 
     else:
         # Default Ambient UI State Elements
@@ -371,7 +373,7 @@ with right_pane:
         st.markdown("<div class='saas-container'>", unsafe_allow_html=True)
         st.markdown("<h4 style='margin-top:0; font-weight:700; font-size:16px; color:#F1F5F9; margin-bottom:16px;'>📊 Softmax Layer Activation Intensities</h4>", unsafe_allow_html=True)
         
-        probabilities_pct = prediction[0] * 100
+        probabilities_pct = final_prediction[0] * 100
         digits_axes = list("ABCDEFGHIJKLMNOPQRSTUVWXYZ")
         
         # Formulating High-Impact Interactive Graphics Dashboard Element
@@ -407,7 +409,7 @@ with right_pane:
         sub_col1, sub_col2 = st.columns(2)
         letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
-        for letter_idx, prob_val in enumerate(prediction[0]):
+        for letter_idx, prob_val in enumerate(final_prediction[0]):
             chosen_sub_col = sub_col1 if letter_idx < 5 else sub_col2
             with chosen_sub_col:
                 st.markdown(f"""
