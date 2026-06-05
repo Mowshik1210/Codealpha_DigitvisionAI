@@ -372,6 +372,7 @@ with right_pane:
         
         probabilities_pct =pred[0] * 100
         digits_axes = list("ABCDEFGHIJKLMNOPQRSTUVWXYZ")
+        st.write(probabilities_pct)
         
         # Formulating High-Impact Interactive Graphics Dashboard Element
         plotly_fig = go.Figure(data=[go.Bar(
