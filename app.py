@@ -284,9 +284,6 @@ with left_pane:
             digit = digit.reshape(1,28,28,1)
 
             pred = model.predict(digit)
-
-            final_prediction = pred
-            final_letter = predicted_letter
             
 
             letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
@@ -373,7 +370,7 @@ with right_pane:
         st.markdown("<div class='saas-container'>", unsafe_allow_html=True)
         st.markdown("<h4 style='margin-top:0; font-weight:700; font-size:16px; color:#F1F5F9; margin-bottom:16px;'>📊 Softmax Layer Activation Intensities</h4>", unsafe_allow_html=True)
         
-        probabilities_pct = final_prediction[0] * 100
+        probabilities_pct =pred[0] * 100
         digits_axes = list("ABCDEFGHIJKLMNOPQRSTUVWXYZ")
         
         # Formulating High-Impact Interactive Graphics Dashboard Element
@@ -409,7 +406,7 @@ with right_pane:
         sub_col1, sub_col2 = st.columns(2)
         letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
-        for letter_idx, prob_val in enumerate(final_prediction[0]):
+        for letter_idx, prob_val in enumerate(pred[0]):
             chosen_sub_col = sub_col1 if letter_idx < 5 else sub_col2
             with chosen_sub_col:
                 st.markdown(f"""
