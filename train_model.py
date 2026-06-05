@@ -1,19 +1,33 @@
+import importlib
 import tensorflow as tf
 
-datasets = tf.keras.datasets
+try:
+    tfds = importlib.import_module("tensorflow_datasets")
+except ImportError as e:
+    raise ImportError(
+        "tensorflow_datasets is required to load the EMNIST dataset. "
+        "Install it with `pip install tensorflow-datasets`."
+    ) from e
+
 layers = tf.keras.layers
 models = tf.keras.models
 
-# Load dataset
-(x_train, y_train), (x_test, y_test) = datasets.mnist.load_data()
+# Load EMNIST Letters via tensorflow_datasets
+# as_supervised=True returns (image, label). batch_size=-1 loads entire split as a single tensor.
+ds_train, ds_test = tfds.load('emnist/letters', split=['train', 'test'], as_supervised=True, batch_size=-1)
 
-# Normalize
-x_train = x_train / 255.0
-x_test = x_test / 255.0
+# ds_train and ds_test are tuples of (images, labels)
+x_train, y_train = tfds.as_numpy(ds_train)
+x_test, y_test = tfds.as_numpy(ds_test)
 
-# Reshape
-x_train = x_train.reshape((-1, 28, 28, 1))
-x_test = x_test.reshape((-1, 28, 28, 1))
+# Normalize and ensure channel dimension
+x_train = x_train.astype('float32') / 255.0
+x_test = x_test.astype('float32') / 255.0
+
+if x_train.ndim == 3:
+    x_train = x_train.reshape((-1, 28, 28, 1))
+if x_test.ndim == 3:
+    x_test = x_test.reshape((-1, 28, 28, 1))
 
 # CNN Model
 model = models.Sequential([
@@ -25,7 +39,7 @@ model = models.Sequential([
 
     layers.Flatten(),
     layers.Dense(64, activation='relu'),
-    layers.Dense(10, activation='softmax')
+    layers.Dense(26, activation='softmax')
 ])
 
 # Compile
