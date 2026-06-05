@@ -305,8 +305,6 @@ with left_pane:
                 if gap > 40:
                     result += " "
 
-        for item in digits:
-            result += item[1]
 
         st.markdown(
             f"""
