@@ -284,6 +284,14 @@ with left_pane:
             digit = digit.reshape(1,28,28,1)
 
             pred = model.predict(digit)
+
+            st.write("Top 5 classes:")
+            top5 = np.argsort(pred[0])[-5:][::-1]
+
+            for idx in top5:
+                st.write(letters[idx], pred[0][idx])
+
+
             st.write("PRED =")
             st.write(pred)
 
@@ -297,6 +305,9 @@ with left_pane:
 
             # EMNIST letters labels start from 1
             predicted_letter = letters[class_id]
+
+            final_pred = pred
+            final_letter = predicted_letter
 
             confidence= np.max(pred) * 100
 
@@ -363,7 +374,7 @@ with right_pane:
         # Visual Inference Core Panels
         st.markdown("<div class='prediction-display-card'>", unsafe_allow_html=True)
         st.markdown("<span style='color:#38BDF8; font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:0.15em;'>Argmax Matrix Output</span>", unsafe_allow_html=True)
-        st.markdown(f"<div class='giant-digit'>{digit}</div>", unsafe_allow_html=True)
+        st.markdown(f"<div class='giant-digit'>{final_letter}</div>", unsafe_allow_html=True)
         st.markdown(f"""
             <div style='display:inline-block; background:rgba(16, 185, 129, 0.12); color:#10B981; font-weight:700; font-size:15px; padding:6px 20px; border-radius:100px; border:1px solid rgba(16, 185, 129, 0.2);'>
                 {confidence:.2f}% Layer Confidence
@@ -375,7 +386,7 @@ with right_pane:
         st.markdown("<div class='saas-container'>", unsafe_allow_html=True)
         st.markdown("<h4 style='margin-top:0; font-weight:700; font-size:16px; color:#F1F5F9; margin-bottom:16px;'>📊 Softmax Layer Activation Intensities</h4>", unsafe_allow_html=True)
         
-        probabilities_pct =pred[0] * 100
+        probabilities_pct =final_pred[0] * 100
         digits_axes = list("ABCDEFGHIJKLMNOPQRSTUVWXYZ")
         st.write(probabilities_pct)
         
@@ -412,7 +423,7 @@ with right_pane:
         sub_col1, sub_col2 = st.columns(2)
         letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
-        for letter_idx, prob_val in enumerate(pred[0]):
+        for letter_idx, prob_val in enumerate(final_pred[0]):
             chosen_sub_col = sub_col1 if letter_idx < 5 else sub_col2
             with chosen_sub_col:
                 st.markdown(f"""
