@@ -179,6 +179,8 @@ def load_nn_model():
 
 model = load_nn_model()
 
+st.write("Model Output Shape:", model.output_shape)
+
 # ==========================================
 # 3. SIDE PANEL SYSTEM BRANDING
 # ==========================================
@@ -284,7 +286,7 @@ with left_pane:
             pred = model.predict(digit)
             
 
-            letters = "_ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+            letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
             class_id = np.argmax(pred)
 
@@ -336,7 +338,8 @@ with left_pane:
         img = img.reshape(1,28,28,1)
 
         prediction = model.predict(img)
-        digit = np.argmax(prediction)
+        letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+        digit = letters[np.argmax(prediction)]
         confidence = np.max(prediction) * 100
 
     else:
@@ -369,7 +372,7 @@ with right_pane:
         st.markdown("<h4 style='margin-top:0; font-weight:700; font-size:16px; color:#F1F5F9; margin-bottom:16px;'>📊 Softmax Layer Activation Intensities</h4>", unsafe_allow_html=True)
         
         probabilities_pct = prediction[0] * 100
-        digits_axes = [str(i) for i in range(10)]
+        digits_axes = list("ABCDEFGHIJKLMNOPQRSTUVWXYZ")
         
         # Formulating High-Impact Interactive Graphics Dashboard Element
         plotly_fig = go.Figure(data=[go.Bar(
@@ -402,12 +405,14 @@ with right_pane:
         st.markdown("<h4 style='margin-top:0; font-weight:700; font-size:16px; color:#F1F5F9; margin-bottom:16px;'>🔢 Fully Resolved Target Vectors</h4>", unsafe_allow_html=True)
         
         sub_col1, sub_col2 = st.columns(2)
-        for digit_idx, prob_val in enumerate(prediction[0]):
-            chosen_sub_col = sub_col1 if digit_idx < 5 else sub_col2
+        letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+
+        for letter_idx, prob_val in enumerate(prediction[0]):
+            chosen_sub_col = sub_col1 if letter_idx < 5 else sub_col2
             with chosen_sub_col:
                 st.markdown(f"""
                 <div class='dense-row'>
-                    <span class='dense-label'>Digit {digit_idx}</span>
+                    <span class='dense-label'>Letter {letters[letter_idx]}</span>
                     <span class='dense-value'>{prob_val*100:.2f}%</span>
                 </div>
                 """, unsafe_allow_html=True)
