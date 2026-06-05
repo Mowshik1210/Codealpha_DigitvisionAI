@@ -247,7 +247,8 @@ with left_pane:
             width=260
         )
         
-        gray = cv2.cvtColor(np.array(image), cv2.COLOR_RGB2GRAY)
+       image = image.convert("RGB")
+       gray = cv2.cvtColor(np.array(image), cv2.COLOR_RGB2GRAY)
 
         _, thresh = cv2.threshold(
             gray,
