@@ -276,13 +276,12 @@ with left_pane:
 
             digit = cv2.resize(digit, (28,28))
 
-            # EMNIST orientation fix
-            digit = cv2.transpose(digit)
-            digit = cv2.flip(digit, 1)
-
             digit = digit.astype('float32') / 255.0
 
             digit = digit.reshape(1,28,28,1)
+
+            st.write("MODEL INPUT")
+            st.image(digit.squeeze(), width=150)
 
             pred = model.predict(digit)
 
@@ -317,6 +316,11 @@ with left_pane:
             digits.append(
                 (x, predicted_letter)
             )
+
+            class_id = np.argmax(pred[0])
+
+            st.write("ARGMAX =", class_id)
+            st.write("LETTER =", letters[class_id])
 
             
 
