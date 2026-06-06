@@ -271,7 +271,7 @@ except Exception as e:
 with st.sidebar:
     st.markdown("<div class='status-pill'>● AI Engine Model</div>", unsafe_allow_html=True)
     st.markdown("<h2 style='font-weight:800; letter-spacing:-0.03em; color:#FFF; margin-bottom:4px;'>DigitVision AI</h2>", unsafe_allow_html=True)
-    st.markdown("<p style='color:#64748B; font-size:14px; margin-bottom:28px;'>Handwritten Digit Recognition By MOWSHIK </p>", unsafe_allow_html=True)
+    st.markdown("<p style='color:#64748B; font-size:14px; margin-bottom:28px;'>Handwritten Digit Recognition By MOWSHIK</p>", unsafe_allow_html=True)
     st.markdown("<p style='color:#64748B; font-size:14px; margin-bottom:15px;'>CSE(AI & ML) ENGINEER in KPRIET</p>", unsafe_allow_html=True)
     
     st.markdown("<p style='font-size:12px; font-weight:700; color:#475569; text-transform:uppercase; letter-spacing:0.05em;'>Pipeline Configuration</p>", unsafe_allow_html=True)
