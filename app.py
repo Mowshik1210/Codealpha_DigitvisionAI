@@ -184,8 +184,8 @@ model = load_nn_model()
 # ==========================================
 with st.sidebar:
     st.markdown("<div class='status-pill'>● AI Engine Model</div>", unsafe_allow_html=True)
-    st.markdown("<h2 style='font-weight:800; letter-spacing:-0.03em; color:#FFF; margin-bottom:4px;'>DigitextVision AI</h2>", unsafe_allow_html=True)
-    st.markdown("<p style='color:#64748B; font-size:14px; margin-bottom:28px;'>Handwritten Digit & Text Recognition By MOWSHIK</p>", unsafe_allow_html=True)
+    st.markdown("<h2 style='font-weight:800; letter-spacing:-0.03em; color:#FFF; margin-bottom:4px;'>DigitVision AI</h2>", unsafe_allow_html=True)
+    st.markdown("<p style='color:#64748B; font-size:14px; margin-bottom:28px;'>Handwritten Digit Recognition By MOWSHIK</p>", unsafe_allow_html=True)
     
     st.markdown("<p style='font-size:12px; font-weight:700; color:#475569; text-transform:uppercase; letter-spacing:0.05em;'>Pipeline Configuration</p>", unsafe_allow_html=True)
     
@@ -195,7 +195,7 @@ with st.sidebar:
         <span style='font-weight:600; color:#F1F5F9; font-size:14px;'>Convolutional Neural Net</span>
         <div style='height:12px;'></div>
         <span style='font-size:12px; color:#64748B; display:block;'>DATASET ARTIFACT</span>
-        <span style='font-weight:600; color:#F1F5F9; font-size:14px;'>MNIST Handwritten Digits and Characters</span>
+        <span style='font-weight:600; color:#F1F5F9; font-size:14px;'>MNIST Handwritten Digits</span>
         <div style='height:12px;'></div>
         <span style='font-size:12px; color:#64748B; display:block;'>BENCHMARK ACCURACY</span>
         <span style='font-weight:700; color:#10B981; font-size:14px;'>~98.00% Validated</span>
@@ -217,7 +217,7 @@ with st.sidebar:
 # ==========================================
 # 4. MAIN SYSTEM INTERFACE & WORKFLOW
 # ==========================================
-st.markdown("<h1 class='gradient-title'>Handwritten Digit & Text Recognition AI</h1>", unsafe_allow_html=True)
+st.markdown("<h1 class='gradient-title'>Handwritten Digit Recognition AI</h1>", unsafe_allow_html=True)
 st.markdown("<p class='section-subtitle'>Advanced handwritten character recognition system powered by deep convolutional neural networks.</p>", unsafe_allow_html=True)
 
 # Main Grid Topographies
@@ -226,7 +226,7 @@ left_pane, right_pane = st.columns([5, 6], gap="large")
 with left_pane:
     st.markdown("<div class='saas-container'>", unsafe_allow_html=True)
     st.markdown("<h3 style='margin-top:0; font-weight:700; font-size:20px; letter-spacing:-0.02em;'>📤 Image Upload & Analysis</h3>", unsafe_allow_html=True)
-    st.markdown("<p style='color:#94A3B8; font-size:14px; margin-bottom:20px;'>Upload a handwritten character or Digit image for real time recognition and prediction.</p>", unsafe_allow_html=True)
+    st.markdown("<p style='color:#94A3B8; font-size:14px; margin-bottom:20px;'>Upload a handwritten character image for real time recognition and prediction.</p>", unsafe_allow_html=True)
     
     uploaded_file = st.file_uploader(
         "Ingest Image Matrix",
@@ -247,104 +247,29 @@ with left_pane:
             width=260
         )
         
-        image = image.convert("RGB")
-        gray = cv2.cvtColor(np.array(image), cv2.COLOR_RGB2GRAY)
-
-        _, thresh = cv2.threshold(
-            gray,
-            120,
-            255,
-            cv2.THRESH_BINARY_INV
-        )
-
-        contours, _ = cv2.findContours(
-            thresh,
-            cv2.RETR_EXTERNAL,
-            cv2.CHAIN_APPROX_SIMPLE
-        )
-
-        digits = []
-
-        for contour in contours:
-
-            x, y, w, h = cv2.boundingRect(contour)
-
-            digit = thresh[y:y+h, x:x+w]
-
-            digit = cv2.resize(digit, (28,28))
-
-            digit = digit / 255.0
-
-            digit = digit.reshape(1,28,28,1)
-
-            pred = model.predict(digit)
-
-            letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-
-            predicted_letter = letters[np.argmax(pred)]
-
-            digits.append(
-                (x, predicted_letter)
-            )
-
-        digits = sorted(digits, key=lambda item: item[0])
-
-        result = ""
-
-        for i in range(len(digits)):
-
-            result += digits[i][1]
-
-            if i < len(digits)-1:
-
-                current_x = digits[i][0]
-                next_x = digits[i+1][0]
-
-                gap = next_x - current_x
-
-                if gap > 40:
-                    result += " "
-
-        for item in digits:
-            result += item[1]
-
-        st.markdown(
-            f"""
-            <div style="
-                padding:20px;
-                border-radius:16px;
-                background:rgba(16,185,129,0.15);
-                border:1px solid rgba(16,185,129,0.3);
-                font-size:28px;
-                font-weight:700;
-                text-align:center;
-            ">
-            📝 Detected Text: {result}
-            </div>
-           """,
-           unsafe_allow_html=True
-        )
-        
-        # Execute Forward Inference Pipeline Execution on the full resized image
-        img = cv2.resize(gray, (28,28))
+        # Invariant Mathematical Image Transforms & Preprocessing Layers
+        img = image.convert("L")
+        img = np.array(img)
+        img = cv2.resize(img, (28, 28))
         img = img / 255.0
-        img = img.reshape(1,28,28,1)
-
+        img = img.reshape(1, 28, 28, 1)
+        
+        # Execute Forward Inference Pipeline Execution
         prediction = model.predict(img)
         digit = np.argmax(prediction)
         confidence = np.max(prediction) * 100
-
+        
     else:
         # Default Ambient UI State Elements
         st.markdown("""
-    <div style='text-align:center; padding:54px 20px; border: 1px dashed rgba(255,255,255,0.06); border-radius:16px; background:rgba(0,0,0,0.1);'>
-        <p style='font-size:40px; margin-bottom:12px;'>🔮</p>
-        <h5 style='color:#E2E8F0; margin-bottom:6px; font-size:16px;'>Awaiting Operational Signal</h5>
-        <p style='color:#64748B; font-size:13px; max-width:300px; margin:0 auto;'>Feed numerical bitmaps to activate computer vision inference node structures.</p>
-    </div>
-    """, unsafe_allow_html=True)
-
-st.markdown("</div>", unsafe_allow_html=True)
+        <div style='text-align:center; padding:54px 20px; border: 1px dashed rgba(255,255,255,0.06); border-radius:16px; background:rgba(0,0,0,0.1);'>
+            <p style='font-size:40px; margin-bottom:12px;'>🔮</p>
+            <h5 style='color:#E2E8F0; margin-bottom:6px; font-size:16px;'>Awaiting Operational Signal</h5>
+            <p style='color:#64748B; font-size:13px; max-width:300px; margin:0 auto;'>Feed numerical bitmaps to activate computer vision inference node structures.</p>
+        </div>
+        """, unsafe_allow_html=True)
+        
+    st.markdown("</div>", unsafe_allow_html=True)
 
 with right_pane:
     if uploaded_file:
@@ -443,4 +368,3 @@ st.markdown("""
 </div>
 """, unsafe_allow_html=True)
 st.markdown("</div>", unsafe_allow_html=True)
-
