@@ -53,6 +53,16 @@
 | **Peak Model Accuracy** | **~99.00% Validated Performance Boundaries** |
 
 ---
+##📸 SCREENSHOTS
+
+
+![home](https://github.com/Mowshik1210/Codealpha_DigitvisionAI/blob/main/Assests/Screenshot%20(96).png?raw=true)
+
+![upload](https://github.com/Mowshik1210/Codealpha_DigitvisionAI/blob/main/Assests/Screenshot%20(97).png?raw=true)
+
+![graph](https://github.com/Mowshik1210/Codealpha_DigitvisionAI/blob/main/Assests/Screenshot%20(98).png?raw=true)
+
+---
 
 ## 📦 Local Installation & Deployment Steps
 
