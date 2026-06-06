@@ -271,7 +271,8 @@ except Exception as e:
 with st.sidebar:
     st.markdown("<div class='status-pill'>● AI Engine Model</div>", unsafe_allow_html=True)
     st.markdown("<h2 style='font-weight:800; letter-spacing:-0.03em; color:#FFF; margin-bottom:4px;'>DigitVision AI</h2>", unsafe_allow_html=True)
-    st.markdown("<p style='color:#64748B; font-size:14px; margin-bottom:28px;'>Handwritten Digit Recognition By MOWSHIK</p>", unsafe_allow_html=True)
+    st.markdown("<p style='color:#64748B; font-size:14px; margin-bottom:28px;'>Handwritten Digit Recognition By MOWSHIK G </p>", unsafe_allow_html=True)
+    st.markdown("<p style='color:#64748B; font-size:14px; margin-bottom:28px;'>CSE(AI & ML) ENGINEER in KPRIET</p>", unsafe_allow_html=True)
     
     st.markdown("<p style='font-size:12px; font-weight:700; color:#475569; text-transform:uppercase; letter-spacing:0.05em;'>Pipeline Configuration</p>", unsafe_allow_html=True)
     
@@ -284,7 +285,7 @@ with st.sidebar:
         <span style='font-weight:600; color:#F1F5F9; font-size:14px;'>MNIST Handwritten Digits</span>
         <div style='height:12px;'></div>
         <span style='font-size:12px; color:#64748B; display:block;'>BENCHMARK ACCURACY</span>
-        <span style='font-weight:700; color:#10B981; font-size:14px;'>~98.00% Validated</span>
+        <span style='font-weight:700; color:#10B981; font-size:14px;'>~99.00% Validated</span>
     </div>
     """, unsafe_allow_html=True)
     
@@ -302,15 +303,16 @@ with st.sidebar:
 # ====================================================================
 # 4. MAIN TELEMETRY DASHBOARD MATRIX
 # ====================================================================
+st.markdown("<h1 style='font-weight:800; letter-spacing:-0.04em; color:#FFF; margin-bottom:4px;'>DigitVision AI</h1>", unsafe_allow_html=True)
 st.markdown("<h1 class='app-title'>Multi-Digit Handwritten Recognition AI</h1>", unsafe_allow_html=True)
-st.markdown("<p class='app-subtitle'>Advanced workspace leveraging smart computer-vision contour segmentation layers to predict multi-character streams.</p>", unsafe_allow_html=True)
+st.markdown("<p class='app-subtitle'>An Intelligent AI system that accurately predicts handwritten digits from uploaded images using advanced convolutional neural networks and deep learning algorithms.</p>", unsafe_allow_html=True)
 
 col_input, col_analytics = st.columns([5, 6], gap="large")
 
 with col_input:
     with st.container(border=True):
         st.markdown("<h3 style='font-size:18px; font-weight:700; margin-top:0;'>📤 Multi-Digit Stream Input</h3>", unsafe_allow_html=True)
-        st.markdown("<p style='color:#94A3B8; font-size:13px; margin-bottom:16px;'>Upload structural ink matrices containing single, double, or multi-digit handwritten sequences.</p>", unsafe_allow_html=True)
+        st.markdown("<p style='color:#94A3B8; font-size:13px; margin-bottom:16px;'>Upload an image containing single, double, or multi-digit handwritten sequences.</p>", unsafe_allow_html=True)
         
         uploaded_file = st.file_uploader("Ingest Document Stream", type=["png", "jpg", "jpeg"], label_visibility="collapsed")
         
@@ -464,7 +466,7 @@ with col_analytics:
             <div style='margin: 20px 0; padding: 20px; border: 1px dashed rgba(255,255,255,0.04); border-radius:12px; background:rgba(255,255,255,0.01); text-align:left;'>
                 <span style='color:#818CF8; font-weight:600; font-size:13px; display:block; margin-bottom:6px;'>⚡ SYSTEM OPERATIONAL RULES</span>
                 <ul style='color:#94A3B8; font-size:13px; margin-left:0; padding-left:16px; line-height:1.7;'>
-                    <li>Upload images containing multiple numerical ink digits written in a straight line.</li>
+                    <li>Upload images containing numerical ink digits written in a straight line and with black background for better prediction accuracy.</li>
                     <li>Ensure digits don't physically touch or blend into each other to allow boundary boxes to crop cleanly.</li>
                     <li>The CV matrix maps, sorts items left-to-right, and fires classifications with ultra-precise metrics.</li>
                 </ul>
