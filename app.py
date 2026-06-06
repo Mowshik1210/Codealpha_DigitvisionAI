@@ -180,6 +180,7 @@ def load_nn_model():
 model = load_nn_model()
 
 st.write("Model Output Shape:", model.output_shape)
+st.write("Last Layer Units:", model.layers[-1].units)
 
 # ==========================================
 # 3. SIDE PANEL SYSTEM BRANDING
