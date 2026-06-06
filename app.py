@@ -125,21 +125,40 @@ try:
 except Exception as e:
     st.error("Execution Alert: Could not find trained 'model.h5' parameters. Please compile train_model.py first.")
 
-# ====================================================================
-# 3. NAVIGATION SYSTEM & BRANDING METADATA
-# ====================================================================
+# ==========================================
+# 3. SIDE PANEL SYSTEM BRANDING
+# ==========================================
 with st.sidebar:
-    st.markdown("<div class='status-node'>● MULTI-DIGIT PIPELINE ENGINE</div>", unsafe_allow_html=True)
-    st.markdown("<h2 style='font-weight:800; color:white; margin-top:12px; margin-bottom:2px;'>DigitVision AI</h2>", unsafe_allow_html=True)
-    st.markdown("<p style='color:#64748B; font-size:13px; margin-bottom:12px;'>Engineered by MOWSHIK</p>", unsafe_allow_html=True)
+    st.markdown("<div class='status-pill'>● AI Engine Model</div>", unsafe_allow_html=True)
+    st.markdown("<h2 style='font-weight:800; letter-spacing:-0.03em; color:#FFF; margin-bottom:4px;'>DigitVision AI</h2>", unsafe_allow_html=True)
+    st.markdown("<p style='color:#64748B; font-size:14px; margin-bottom:28px;'>Handwritten Digit Recognition By MOWSHIK</p>", unsafe_allow_html=True)
     
-    st.markdown("<div class='sidebar-card'>", unsafe_allow_html=True)
-    st.markdown("<span style='font-size:11px; color:#64748B; display:block; font-weight:700; text-transform:uppercase;'>System Core Specs</span>", unsafe_allow_html=True)
-    st.markdown("<p style='font-size:13px; margin:4px 0; color:#E2E8F0;'>• Accuracy: <strong>99%+ Optimized</strong><br>• Scope: <strong>Multi-Digit Structural Contours</strong><br>• Model Layer: <strong>Extended Deep CNN</strong></p>", unsafe_allow_html=True)
-    st.markdown("</div>", unsafe_allow_html=True)
+    st.markdown("<p style='font-size:12px; font-weight:700; color:#475569; text-transform:uppercase; letter-spacing:0.05em;'>Pipeline Configuration</p>", unsafe_allow_html=True)
     
-    st.markdown("<p style='text-align:center; color:#334155; font-size:11px; margin-top:120px;'>MOWSHIK G // 2026</p>", unsafe_allow_html=True)
-
+    st.markdown("""
+    <div class='sidebar-card'>
+        <span style='font-size:12px; color:#64748B; display:block;'>CORE ARCHITECTURE</span>
+        <span style='font-weight:600; color:#F1F5F9; font-size:14px;'>Convolutional Neural Net</span>
+        <div style='height:12px;'></div>
+        <span style='font-size:12px; color:#64748B; display:block;'>DATASET ARTIFACT</span>
+        <span style='font-weight:600; color:#F1F5F9; font-size:14px;'>MNIST Handwritten Digits</span>
+        <div style='height:12px;'></div>
+        <span style='font-size:12px; color:#64748B; display:block;'>BENCHMARK ACCURACY</span>
+        <span style='font-weight:700; color:#10B981; font-size:14px;'>~98.00% Validated</span>
+    </div>
+    """, unsafe_allow_html=True)
+    
+    st.markdown("""
+    <div class='sidebar-card'>
+        <span style='font-size:12px; color:#64748B; display:block; margin-bottom:6px;'>TECHNOLOGY STACK</span>
+        <code style='color:#38BDF8; font-size:12px; background:none; padding:0;'>• Python v3.11+</code><br>
+        <code style='color:#38BDF8; font-size:12px; background:none; padding:0;'>• TensorFlow API</code><br>
+        <code style='color:#38BDF8; font-size:12px; background:none; padding:0;'>• OpenCV / Pillow</code><br>
+        <code style='color:#38BDF8; font-size:12px; background:none; padding:0;'>• Streamlit UI Matrix</code>
+    </div>
+    """, unsafe_allow_html=True)
+    
+    st.markdown("<p style='text-align:center; color:#334155; font-size:11px; margin-top:40px;'>MOWSHIK G // 2026</p>", unsafe_allow_html=True)
 # ====================================================================
 # 4. MAIN TELEMETRY DASHBOARD MATRIX
 # ====================================================================
@@ -312,17 +331,30 @@ with col_analytics:
             </div>
             """, unsafe_allow_html=True)
 
-# ====================================================================
-# 5. FIXED INFRASTRUCTURE SPECIFICATION FEATURE ROW
-# ====================================================================
-st.markdown("<div style='height:4px;'></div>", unsafe_allow_html=True)
-with st.container(border=True):
-    st.markdown("<h4 style='margin-top:0; font-weight:700; font-size:16px; color:white;'>🚀 Multi-Digit Platform Capabilities Matrix</h4>", unsafe_allow_html=True)
-    
-    f_col1, f_col2, f_col3 = st.columns(3)
-    with f_col1:
-        st.markdown("<p style='margin:0; font-size:13px; color:#38BDF8;'><strong>🔍 OpenCV Contour Extraction</strong><br><span style='color:#94A3B8;'>Splits structural character streams into standalone tensor bounding boxes instantly.</span></p>", unsafe_allow_html=True)
-    with f_col2:
-        st.markdown("<p style='margin:0; font-size:13px; color:#38BDF8;'><strong>🧠 99%+ Optimized CNN Core</strong><br><span style='color:#94A3B8;'>Deeper layers integrated with BatchNormalization adjustments for highly accurate evaluations.</span></p>", unsafe_allow_html=True)
-    with f_col3:
-        st.markdown("<p style='margin:0; font-size:13px; color:#38BDF8;'><strong>🔀 Horizontal Array Sort</strong><br><span style='color:#94A3B8;'>Arranges character arrays automatically based on coordinate tracks for logical string mapping.</span></p>", unsafe_allow_html=True)
+# ==========================================
+# 5. ENTERPRISE CORE SYSTEM SPECIFICATIONS
+# ==========================================
+st.markdown("<div class='saas-container'>", unsafe_allow_html=True)
+st.markdown("<h3 style='margin-top:0; font-weight:700; font-size:20px; letter-spacing:-0.02em;'>🚀 Architectural Pipeline Capabilities</h3>", unsafe_allow_html=True)
+
+st.markdown("""
+<div class='feature-matrix'>
+    <div class='feature-node'>
+        <strong>Deep CNN Topology</strong>
+        <span>Multilayer feature pooling maps tuned for localized pixel contrast matrices.</span>
+    </div>
+    <div class='feature-node'>
+        <strong>MNIST Normalization</strong>
+        <span>Autonomous matrix transformation resizing raw user inputs into canonical formats.</span>
+    </div>
+    <div class='feature-node'>
+        <strong>Telemetry Vector Charts</strong>
+        <span>Real-time interactive distribution tracking utilizing asynchronous Plotly nodes.</span>
+    </div>
+    <div class='feature-node'>
+        <strong>Production Dark Design</strong>
+        <span>Modern premium layout with clean spacing, fine typography, and high-contrast indicators.</span>
+    </div>
+</div>
+""", unsafe_allow_html=True)
+st.markdown("</div>", unsafe_allow_html=True)
