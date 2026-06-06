@@ -179,9 +179,6 @@ def load_nn_model():
 
 model = load_nn_model()
 
-st.write("Model Output Shape:", model.output_shape)
-st.write("Last Layer Units:", model.layers[-1].units)
-
 # ==========================================
 # 3. SIDE PANEL SYSTEM BRANDING
 # ==========================================
@@ -276,55 +273,19 @@ with left_pane:
 
             digit = cv2.resize(digit, (28,28))
 
-            digit = digit.astype('float32') / 255.0
+            digit = digit / 255.0
 
             digit = digit.reshape(1,28,28,1)
-
-            st.write("MODEL INPUT")
-            st.image(digit.squeeze(), width=150)
 
             pred = model.predict(digit)
 
             letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
-            st.write("Top 5 classes:")
-            top5 = np.argsort(pred[0])[-5:][::-1]
-
-            for idx in top5:
-                st.write(letters[idx], pred[0][idx])
-
-
-            st.write("PRED =")
-            st.write(pred)
-
-            st.write("PRED SHAPE =")
-            st.write(pred.shape)
-            
-
-            letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-
-            class_id = np.argmax(pred)
-
-            # EMNIST letters labels start from 1
-            predicted_letter = letters[class_id]
-
-            final_pred = pred
-            final_letter = predicted_letter
-
-            confidence= np.max(pred) * 100
+            predicted_letter = letters[np.argmax(pred)]
 
             digits.append(
                 (x, predicted_letter)
             )
-
-            class_id = np.argmax(pred[0])
-
-            st.write("ARGMAX =", class_id)
-            st.write("LETTER =", letters[class_id])
-
-            
-
-            
 
         digits = sorted(digits, key=lambda item: item[0])
 
@@ -344,6 +305,9 @@ with left_pane:
                 if gap > 40:
                     result += " "
 
+        for item in digits:
+            result += item[1]
+
         st.markdown(
             f"""
             <div style="
@@ -362,7 +326,13 @@ with left_pane:
         )
         
         # Execute Forward Inference Pipeline Execution on the full resized image
-        
+        img = cv2.resize(gray, (28,28))
+        img = img / 255.0
+        img = img.reshape(1,28,28,1)
+
+        prediction = model.predict(img)
+        digit = np.argmax(prediction)
+        confidence = np.max(prediction) * 100
 
     else:
         # Default Ambient UI State Elements
@@ -381,7 +351,7 @@ with right_pane:
         # Visual Inference Core Panels
         st.markdown("<div class='prediction-display-card'>", unsafe_allow_html=True)
         st.markdown("<span style='color:#38BDF8; font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:0.15em;'>Argmax Matrix Output</span>", unsafe_allow_html=True)
-        st.markdown(f"<div class='giant-digit'>{final_letter}</div>", unsafe_allow_html=True)
+        st.markdown(f"<div class='giant-digit'>{digit}</div>", unsafe_allow_html=True)
         st.markdown(f"""
             <div style='display:inline-block; background:rgba(16, 185, 129, 0.12); color:#10B981; font-weight:700; font-size:15px; padding:6px 20px; border-radius:100px; border:1px solid rgba(16, 185, 129, 0.2);'>
                 {confidence:.2f}% Layer Confidence
@@ -393,9 +363,8 @@ with right_pane:
         st.markdown("<div class='saas-container'>", unsafe_allow_html=True)
         st.markdown("<h4 style='margin-top:0; font-weight:700; font-size:16px; color:#F1F5F9; margin-bottom:16px;'>📊 Softmax Layer Activation Intensities</h4>", unsafe_allow_html=True)
         
-        probabilities_pct =final_pred[0] * 100
-        digits_axes = list("ABCDEFGHIJKLMNOPQRSTUVWXYZ")
-        st.write(probabilities_pct)
+        probabilities_pct = prediction[0] * 100
+        digits_axes = [str(i) for i in range(10)]
         
         # Formulating High-Impact Interactive Graphics Dashboard Element
         plotly_fig = go.Figure(data=[go.Bar(
@@ -428,14 +397,12 @@ with right_pane:
         st.markdown("<h4 style='margin-top:0; font-weight:700; font-size:16px; color:#F1F5F9; margin-bottom:16px;'>🔢 Fully Resolved Target Vectors</h4>", unsafe_allow_html=True)
         
         sub_col1, sub_col2 = st.columns(2)
-        letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-
-        for letter_idx, prob_val in enumerate(final_pred[0]):
-            chosen_sub_col = sub_col1 if letter_idx < 5 else sub_col2
+        for digit_idx, prob_val in enumerate(prediction[0]):
+            chosen_sub_col = sub_col1 if digit_idx < 5 else sub_col2
             with chosen_sub_col:
                 st.markdown(f"""
                 <div class='dense-row'>
-                    <span class='dense-label'>Letter {letters[letter_idx]}</span>
+                    <span class='dense-label'>Digit {digit_idx}</span>
                     <span class='dense-value'>{prob_val*100:.2f}%</span>
                 </div>
                 """, unsafe_allow_html=True)
@@ -476,3 +443,4 @@ st.markdown("""
 </div>
 """, unsafe_allow_html=True)
 st.markdown("</div>", unsafe_allow_html=True)
+

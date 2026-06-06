@@ -19,17 +19,6 @@ ds_train, ds_test = tfds.load('emnist/letters', split=['train', 'test'], as_supe
 # ds_train and ds_test are tuples of (images, labels)
 x_train, y_train = tfds.as_numpy(ds_train)
 x_test, y_test = tfds.as_numpy(ds_test)
-# EMNIST labels are 1-26
-# Convert to 0-25
-
-y_train = y_train - 1
-y_test = y_test - 1
-
-x_train = x_train.transpose((0,2,1,3))
-x_test = x_test.transpose((0,2,1,3))
-
-x_train = x_train[:, :, ::-1, :]
-x_test = x_test[:, :, ::-1, :]
 
 # Normalize and ensure channel dimension
 x_train = x_train.astype('float32') / 255.0
@@ -61,7 +50,7 @@ model.compile(
 )
 
 # Train
-model.fit(x_train, y_train, epochs=10)
+model.fit(x_train, y_train, epochs=5)
 
 # Save model
 model.save("model.h5")
