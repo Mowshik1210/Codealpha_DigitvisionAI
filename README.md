@@ -2,7 +2,8 @@
 
 **DigitVision AI** is an enterprise-grade, production-optimized computer vision system designed to break down, isolate, and read handwritten character streams. By fusing advanced **OpenCV Contour Segmentation Layers** with a deepened **Convolutional Neural Network (CNN)** trained on the MNIST dataset, this system transitions beyond single-digit limitations to decode multi-digit inputs (e.g., parsing strings like `2026`, `54`, or `789`) instantly within a beautiful dark-mode workspace.
 
-🌐 **Live Deployment Node:** [digitvisionai.streamlit.app](https://www.google.com/search?q=https://digitvisionai.streamlit.app)
+🌐 **Live Deployment Node:** 
+[digitvisionai.streamlit.app](digitvisionai.streamlit.app)
 
 ---
 
