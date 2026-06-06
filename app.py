@@ -32,6 +32,145 @@ st.markdown("""
         border-radius: 20px !important;
         padding: 16px !important;
     }
+     /* Custom glassy panels */
+    .saas-container {
+        background: rgba(15, 23, 42, 0.45);
+        backdrop-filter: blur(24px);
+        -webkit-backdrop-filter: blur(24px);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 24px;
+        padding: 32px;
+        margin-bottom: 24px;
+        box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.7);
+    }
+    
+    .sidebar-card {
+    background: linear-gradient(
+        135deg,
+        rgba(56, 189, 248, 0.12),
+        rgba(139, 92, 246, 0.12)
+    );
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    padding: 20px;
+    backdrop-filter: blur(12px);
+    }
+    
+    /* Hyper-gradient typography styles */
+    .gradient-title {
+        background: linear-gradient(135deg, #38BDF8 0%, #818CF8 50%, #C084FC 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-size: 52px;
+        font-weight: 800;
+        letter-spacing: -0.04em;
+        line-height: 1.15;
+        margin-bottom: 8px;
+    }
+    
+    .section-subtitle {
+        color: #94A3B8;
+        font-size: 18px;
+        font-weight: 400;
+        margin-bottom: 32px;
+        letter-spacing: -0.01em;
+    }
+    
+    /* Interactive status components */
+    .status-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 6px 16px;
+        border-radius: 100px;
+        font-size: 13px;
+        font-weight: 600;
+        letter-spacing: 0.02em;
+        text-transform: uppercase;
+        background: rgba(56, 189, 248, 0.1);
+        color: #38BDF8;
+        border: 1px solid rgba(56, 189, 248, 0.2);
+        margin-bottom: 20px;
+    }
+    
+    /* Output Analytics Modules */
+    .prediction-display-card {
+        background: linear-gradient(135deg, rgba(56, 189, 248, 0.07) 0%, rgba(129, 140, 248, 0.07) 100%);
+        border: 1px solid rgba(99, 102, 241, 0.25);
+        border-radius: 24px;
+        padding: 40px;
+        text-align: center;
+        box-shadow: 0 0 50px rgba(99, 102, 241, 0.1);
+    }
+    
+    .giant-digit {
+        font-size: 120px;
+        font-weight: 900;
+        background: linear-gradient(180deg, #FFFFFF 30%, #94A3B8 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        line-height: 1;
+        margin: 12px 0;
+        filter: drop-shadow(0 0 30px rgba(255,255,255,0.15));
+    }
+    
+    /* Fine-grain custom tables / rows */
+    .dense-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 12px 18px;
+        background: rgba(255, 255, 255, 0.02);
+        border-radius: 12px;
+        margin-bottom: 8px;
+        border: 1px solid rgba(255, 255, 255, 0.04);
+        transition: background 0.2s ease;
+    }
+    .dense-row:hover {
+        background: rgba(255, 255, 255, 0.04);
+    }
+    .dense-label {
+        font-family: 'JetBrains Mono', monospace;
+        font-weight: 700;
+        color: #CBD5E1;
+    }
+    .dense-value {
+        font-family: 'JetBrains Mono', monospace;
+        font-weight: 700;
+        color: #38BDF8;
+    }
+    
+    /* Feature Grid Matrix */
+    .feature-matrix {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 16px;
+        margin-top: 16px;
+    }
+    .feature-node {
+        background: rgba(255, 255, 255, 0.02);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        padding: 20px;
+        border-radius: 16px;
+    }
+    .feature-node strong {
+        color: #38BDF8;
+        display: block;
+        margin-bottom: 4px;
+        font-size: 15px;
+    }
+    .feature-node span {
+        color: #94A3B8;
+        font-size: 13px;
+    }
+    
+    /* Clean overrides for upload mechanisms */
+    [data-testid="stFileUploader"] {
+        padding: 12px;
+        background: rgba(0, 0, 0, 0.2);
+        border-radius: 16px;
+        border: 1px dashed rgba(255, 255, 255, 0.1);
+    }
 
     .app-title {
         background: linear-gradient(135deg, #38BDF8 0%, #818CF8 50%, #C084FC 100%);
@@ -48,6 +187,7 @@ st.markdown("""
         font-size: 15px;
         margin-bottom: 28px;
     }
+    
 
     .status-node {
         display: inline-flex;
