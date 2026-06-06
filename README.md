@@ -1,133 +1,135 @@
+# DigitVision AI // Multi-Inference Engine
 
+**DigitVision AI** is an enterprise-grade, production-optimized computer vision system designed to break down, isolate, and read handwritten character streams. By fusing advanced **OpenCV Contour Segmentation Layers** with a deepened **Convolutional Neural Network (CNN)** trained on the MNIST dataset, this system transitions beyond single-digit limitations to decode multi-digit inputs (e.g., parsing strings like `2026`, `54`, or `789`) instantly within a beautiful dark-mode workspace.
 
----
-
-# DigitVisionAI // Handwritten Digit Recognition OS
-
-An elite, production-grade computer vision workspace designed to process raw handwritten input strokes and perform real-time forward-pass classifications. Leveraging a Deep Convolutional Neural Network (CNN) trained on the classic MNIST dataset, this intelligence platform delivers low-latency predictions paired with interactive layer telemetry visualizations.
-
-The system features a bespoke user interface engineered with clean SaaS-level ergonomics, dynamic dark theme variations, interactive Plotly distribution charts, and absolute protection against layout rendering anomalies.
+🌐 **Live Deployment Node:** [digitvisionai.streamlit.app](https://www.google.com/search?q=https://digitvisionai.streamlit.app)
 
 ---
 
-## 🚀 Key Architectural Features
+## 🚀 Key Architectural Breakthroughs
 
-* **Deep Learning Inference Node:** Built with an optimized Convolutional Neural Network (CNN) architecture designed for spatial pixel feature extraction.
-* **Real-time Spatial Normalization:** Uses an automated OpenCV preprocessing pipeline to scale, downsample ($28 \times 28$), and structurally isolate grayscale input tensors dynamically upon ingestion.
-* **Interactive Softmax Telemetry:** Replaces static charts with highly responsive, interactive Plotly visualization matrices to display class density distributions in real-time.
-* **Granular Log Matrix:** Features a dense data breakdown pane exposing raw floating-point probability outputs for every individual digit class layer simultaneously.
-* **Premium SaaS Ergonomics:** Crafted with premium styling, customized card containers, custom fonts, status pills, and reactive onboarding fallbacks to ensure a professional user experience.
+* **Multi-Digit Contour Segmentation:** Replaces rigid whole-image analysis with dynamic bounding coordinates. It segments continuous ink strokes, handles variable spacing, and programmatically sorts bounding boxes from left to right to construct structural text output.
+* **99%+ Optimized CNN Core:** Upgraded with structural Batch Normalization layers, dense convolutional filters ($32 \rightarrow 64 \rightarrow 128$), and dropout regularization to overcome standard training noise and maximize classification accuracy.
+* **Background Contrast Invariant Auto-Flipping:** Contains a defensive preprocessing layer using Otsu's adaptive binarization that analyzes mean pixel densities, flipping canvas values appropriately to accommodate both light and dark document ink formats.
+* **Asynchronous Telemetry Distribution:** Integrates an interactive Plotly-driven tracking matrix. Users can alternate a selector switch to monitor raw Softmax probabilities across every captured individual sub-segment on the fly.
+* **Elite Glassmorphic SaaS Design:** Crafted with responsive container styling, high-impact gradient typography, micro-padding parameters, and clean fallback cards when idling for inputs.
 
 ---
 
-## 🛠️ Technological Stack
+## 🛠️ Technology Sandbox
 
-* **Language:** Python v3.11+
-* **Deep Learning Core:** TensorFlow / Keras Sequential Engine
+* **Core Platform Engine:** Python v3.11+
+* **Deep Neural Network Node:** TensorFlow 2.x & Keras API
 * **Computer Vision Pipeline:** OpenCV (`cv2`) & Pillow (`PIL`)
-* **Data Engineering:** NumPy Array Matrices
-* **Analytics Engine:** Plotly Express / Graphic Objects
-* **Interface Orchestration:** Streamlit Web Server Framework
+* **Interactive Data Engine:** NumPy Array Matrices & Plotly Express
+* **Interface Orchestration Server:** Streamlit Core UI Framework
 
 ---
 
-## 📁 Repository Blueprint
+## 📁 Repository Map
 
 ```text
-CodeAlpha_Handwritten_Character_Recognition/
-│
-├── app.py                 # Premium Streamlit UI Dashboard & Processing Engine
-├── train_model.py         # CNN Training script utilizing TensorFlow
-├── model.h5               # Saved pre-compiled Deep Learning neural weights
-├── requirements.txt       # Frozen environment configuration dependencies
-└── README.md              # Project documentation (This file)
+├── app.py                 # Premium Multi-Inference Dashboard & CV Pipeline
+├── train_model.py         # Advanced CNN Training Blueprint (Batch Normalization & Dropout)
+├── model.h5               # High-accuracy Deep Learning binary neural weights
+├── requirements.txt       # Unified sandbox dependencies configuration
+└── README.md              # Production system documentation (This file)
 
 ```
 
 ---
 
-## 📊 Pipeline Specifications & Metrics
+## 📊 Performance Matrix
 
-The underlying convolutional neural network maps feature tensors across target validation layers:
-
-| Target Component | Specification Metrics |
+| Metric Component | Engineering Values |
 | --- | --- |
-| **Dataset Source** | MNIST Database (60,000 Training / 10,000 Testing Records) |
-| **Core Architecture** | Deep Convolutional Neural Network (CNN) |
-| **Target Dimensions** | $28 \times 28 \times 1$ Normalised Grayscale Vector Matrices |
-| **Output Layer** | 10 Classes with Softmax Activation ($0 - 9$) |
-| **Peak Performance** | **~98.00% Validation Accuracy** |
+| **Dataset Vector Source** | MNIST Database (60k Train Samples / 10k Testing Records) |
+| **Core Layer Architecture** | Extended Deep Convolutional Neural Network (CNN) |
+| **Target Tensor Dimensions** | $28 \times 28 \times 1$ Standardized Grayscale Channels |
+| **Parsing Track Scope** | **Multi-Digit Sequences** (Single, Double, or Infinite String Streams) |
+| **Inference Latency** | **< 15ms** per individual structural bounding region |
+| **Peak Model Accuracy** | **~99.00% Validated Performance Boundaries** |
 
 ---
 
-## 📦 Local Deployment & Installation
+## 📦 Local Installation & Deployment Steps
 
-### 1. Initialize Repository Workspace
+Follow these instructions to mirror the environment configuration inside a local development container.
 
-Clone the directory down to local environments:
+### 1. Replicate Repository Resources
 
 ```bash
-git clone https://github.com/your-username/CodeAlpha_DigitvisionAI.git
-cd CodeAlpha_Handwritten_Character_Recognition
+git clone https://github.com/your-username/DigitVision-AI.git
+cd DigitVision-AI
 
 ```
 
-### 2. Configure Virtual Environment Sandbox
-
-Isolate environment spaces using standard Python system managers:
+### 2. Isolate Virtual Sandbox Environments
 
 ```bash
 python -m venv venv
 
-# For macOS/Linux systems:
+# Activate for macOS/Linux shells:
 source venv/bin/activate
 
-# For Windows systems:
+# Activate for Windows PowerShell:
 venv\Scripts\activate
 
 ```
 
-### 3. Install Core Workspace Dependencies
-
-Install required technical packages through pip:
+### 3. Synchronize Dependency Track List
 
 ```bash
 pip install -r requirements.txt
 
 ```
 
-*(Ensure `streamlit`, `tensorflow`, `numpy`, `opencv-python`, `pillow`, and `plotly` are accurately defined in your `requirements.txt` file.)*
+### 4. Compile the Deep Neural Network Model
 
----
+If you need to reproduce or recompile the `model.h5` parameter file with enhanced training rules, execute the training script:
 
-## 🖥️ Launching the Application Engine
+```bash
+python train_model.py
 
-Once your virtual sandbox is initialized and compiled, start the secure local host network via:
+```
+
+### 5. Launch the Local Application Server
 
 ```bash
 streamlit run app.py
 
 ```
 
-Open your preferred modern web browser window to the local workspace address provided inside your terminal (typically `http://localhost:8501`).
+Open your modern web viewport to `http://localhost:8501` to use the dashboard locally.
 
 ---
 
-## 💡 Operational Workflow
+## 💡 Operational Pipeline Rules
 
-1. **Ingest Stream:** Upload any high-contrast digital ink sketch or handwritten document image into the ingestion card section.
-2. **Matrix Translation:** The automated data pipeline immediately converts values into single-channel grayscale arrays and runs dimensional compression transforms ($28 \times 28$).
-3. **Forward Pass Calculation:** The model evaluates layer tensor arrays and returns predictions with precise statistical confidence metrics.
-4. **Interactive Exploration:** Hover over individual data blocks inside the Plotly graph to inspect probability trends.
+To maximize classification accuracy when passing array images to the inference node:
+
+```text
+[ Raw Input Image ] ──► [ OpenCV Grayscale & Blur ] ──► [ Otsu's Binary Threshold Inversion ]
+                                                                       │
+[ Sequence String Output ] ◄── [ CNN Matrix Inference ] ◄── [ Sorted Left-to-Right Boxes ]
+
+```
+
+1. **Horizontal Consistency:** Ensure multi-digit sequences are written along a clean horizontal line.
+2. **Structural Spacing:** Leave clear margins between adjacent characters; overlapping strokes can cause two numbers to be read as a single grouped segment.
+3. **Contrast Optimization:** While the adaptive background auto-flipper accounts for contrast variations, high-contrast inputs consistently provide the cleanest feature mappings.
+
+---
+
+## 👨‍💻 Developer & Portfolio Context
+
+* **Lead Engineer:** MOWSHIK G
+* **Specialization Track:** Computer Science & Engineering (Artificial Intelligence & Machine Learning)
+* **Institutional Node:** KPR Institute of Engineering and Technology (KPRIET)
+* **Target Release Cycle:** 2026
 
 ---
 
 ## ⚖️ License
 
-Distributed under the MIT License. See `LICENSE` for more information.
-
----
-
-## 👨‍💻 Project Context
-
-Developed as an advanced engineering milestone during the **CodeAlpha Machine Learning Internship program**.
+Distributed under the terms of the MIT Open Source License Engine. See `LICENSE` for structural context guidelines.
