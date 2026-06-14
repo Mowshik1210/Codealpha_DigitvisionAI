@@ -15,6 +15,13 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
+st.markdown(
+    """
+    <meta name="google-site-verification" content="3B5hFzJ_3XDR8vdz2icSF4CXgLekVzdZKFoof_Puhjc" />
+    """,
+    unsafe_allow_html=True
+)
+
 st.markdown("""
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap');
