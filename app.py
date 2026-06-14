@@ -5,6 +5,13 @@ import cv2
 import plotly.graph_objects as go
 from PIL import Image
 
+st.markdown(
+    """
+    <meta name="google-site-verification" content="3B5hFzJ_3XDR8vdz2icSF4CXgLekVzdZKFoof_Puhjc" />
+    """,
+    unsafe_allow_html=True
+)
+
 # ====================================================================
 # 1. PLATFORM CONFIGURATION & STYLE DESIGN PIPELINE
 # ====================================================================
@@ -13,13 +20,6 @@ st.set_page_config(
     page_icon="🧠",
     layout="wide",
     initial_sidebar_state="expanded"
-)
-
-st.markdown(
-    """
-    <meta name="google-site-verification" content="3B5hFzJ_3XDR8vdz2icSF4CXgLekVzdZKFoof_Puhjc" />
-    """,
-    unsafe_allow_html=True
 )
 
 st.markdown("""
